@@ -1,0 +1,33 @@
+.td {
+    border: 200;
+    border-style: solid;
+    border-color: #404040;
+    background-color: #00B0F5;
+    text-align: center;
+    border-radius: 20px;   
+    min-width: 100px;
+	max-width: 100px;
+    height: 100px;
+}
+
+
+.tabellengestaltung{
+	border-spacing: 30px 0px;
+}
+
+.containertabelle{
+    width: 600px;
+    margin-left: 21%;
+    margin-right: 30%;
+    text-align: center;
+    
+}
+
+.HKbuttonBG{
+	background-color: #00B0F5;
+	border-style: hidden;
+}
+
+.pfuerVerlauf{
+	line-height: 2px;
+}

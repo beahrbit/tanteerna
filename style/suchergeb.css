@@ -1,0 +1,96 @@
+.mittelbox{
+	width: 800px;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.highlight{
+	font-size:16px;
+}
+
+.Linkhover{
+	color: blue;
+}
+
+.produktbox{
+	height: 175px;
+	width: 800px;
+	border: 2px;
+	
+	
+	border-style: solid;
+	margin-bottom:15px;
+}
+
+.buttonstyle{
+	border-style: hidden;
+	height: 175px;
+	width: 800px;
+	cursor: pointer;
+	padding:0px;
+	background-color:transparent;
+	
+	
+}
+
+
+.produktbild{
+	height: 175px;
+	width: 175px;
+	vertical-align: center;
+	float: left;
+	
+	}
+
+.produktbeschreibung{
+	text-align: left;
+	height: 150px;
+	width: 450px;
+	margin-left: 10px;
+	float: left;
+	margin-top: 12.5px;
+
+}
+
+.preisbox{
+	height:auto;
+	width: 110px;
+	text-align:center;
+	vertical-align: middle;
+	font-weight: bold;
+	font-size: 20px;
+	float: right;
+	right: 0;
+	top: 0;
+	
+}
+
+/*Sprachliches*/
+
+h3,h4{
+	line-height: 2px;
+	text-indent: 20px;
+}
+
+h3{
+	font-size:18px;
+}
+h4{
+	font-size:17px;
+}
+
+table{
+	border-spacing: 25px 8px;
+	margin-left: 10px;
+}
+
+p{
+	
+}
+
+
+
+.pfuerVerlauf{
+	line-height: 2px;
+}

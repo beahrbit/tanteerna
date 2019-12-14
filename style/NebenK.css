@@ -1,0 +1,49 @@
+.td {
+    border: 200;
+    border-style: solid;
+    border-color: #404040;
+    background-color: #00B0F5;
+    text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	min-width: 100px;
+	max-width: 100px;
+    border-radius: 20px;   
+    height: 100px;
+	font-size: 30px;
+	padding-top: 5px;
+}
+
+td {
+	min-width: 120px;
+	max-width: 120px;
+	word-wrap: break-word;
+}
+
+.tdunterschrift{
+	
+}
+
+.tabellengestaltung{
+	border-spacing: 30px 25px;
+}
+
+.containertabelle{
+	width: 725px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    
+}
+
+.pfuerVerlauf{
+	line-height: 2px;
+}
+
+.HKbuttonBG{
+	background-color: #00B0F5;
+	border-style: hidden;
+	height: 90px;
+	width: 90px;
+	font-size: 30px;
+}
