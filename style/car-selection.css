@@ -1,0 +1,83 @@
+.fill-width {
+	width: 100%;
+}
+
+.button-style{
+	width: 120px;
+	height: 40px;
+	border-radius: 15px;
+	background-color: #b4b4b4;
+	cursor: pointer;
+}
+
+#headline {
+	text-indent: 10%;
+}
+
+#content-container {
+	margin: 60px auto 0px auto;
+	width: 60%;
+	text-align: center;
+}
+
+.car-headlines {
+	width: 190px;
+	float: left;
+	display: block;
+	padding-right: 10px;
+	text-align: right;
+	font-weight: bold;
+	margin-bottom: 10px;
+	line-height: 20px;
+}
+
+.car-selection-container {
+	width: 190px;
+	height: 20px;
+	float: left;
+	display: block;
+	padding-left: 10px;
+	margin-bottom: 10px;
+	text-align: left;
+}
+
+#car-selection-container-stage0 {
+	width: 400px;
+	height: 150px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+}
+
+#car-chip-container {
+	margin-top: 40px;
+	margin-bottom: 15px;
+	text-align: left;
+}
+
+.car-chip {
+	padding: 10px;
+	margin: 5px;
+	font-size: 16px;
+	line-height: 20px;
+	border-radius: 20px;
+	background-color: #f1f1f1;
+}
+
+.car-chip-delete-button {
+	display: none;
+	padding-left: 10px;
+	color: #888;
+	font-weight: bold;
+	float: right;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.car-chip:hover > .car-chip-delete-button {
+	display: block;
+}
+
+.car-chip-delete-button:hover {
+	color: #000;
+}

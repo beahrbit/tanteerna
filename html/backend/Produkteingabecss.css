@@ -1,0 +1,44 @@
+h2{
+	text-indent: 10%;
+}
+
+table{
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 60px;
+}
+
+td{
+	vertical-align: center;
+}
+
+.Buttonstyle{
+	width: 120px;
+	height: 40px;
+	border-radius: 15px;
+	background-color: #b4b4b4;
+	cursor: pointer;
+}
+
+.Button{
+	text-align: center;
+}
+
+.hegb{
+	float:right;
+	width: 100px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.egblength{
+	width: 160px;
+}
+
+.Anmeldebutton{
+	width: 120px;
+	height: 40px;
+	margin-top: 30px;
+	border-radius: 15px;
+	background-color: #00B0F5;
+}
