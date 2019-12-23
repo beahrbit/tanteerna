@@ -30,16 +30,24 @@
 			<div id="dropdowns">
 				<form action="HauptKat.php" method="get" >
 					<br>
-					<select id="brand" name="Autohersteller" onchange="update('model',this.value)" class="rundeEcke">
+					<select id="brand" name="Autohersteller" onchange="update(1)" class="rundeEcke">
 						<option value="">Hersteller</option>
 					</select>
 					<br><br>
-					<select id="model" name="Modell" onchange="update('version', this.value)" class="rundeEcke">
+					<select id="model" name="Modell" onchange="update(2)" class="rundeEcke">
 						<option value="">Modell</option>
 					</select>
 					<br><br>
-					<select id="version" name="Ausfuehrung" onchange="handleSubmitButton(this.value)" class="rundeEcke">
-						<option value="">Ausführung</option>
+					<select id="generation" name="Generation" onchange="update(3)" class="rundeEcke">
+						<option value="">Generation</option>
+					</select>
+					<br><br>
+					<select id="series" name="Serie" onchange="update(4)" class="rundeEcke">
+						<option value="">Serie</option>
+					</select>
+					<br><br>
+					<select id="trim" name="Trim" onchange="handleSubmitButton(this.value)" class="rundeEcke">
+						<option value="">Trim</option>
 					</select>
 					<br><br>
 					<input id="submit" type="submit" value="Finde deine Upgrades" class="Buttonstyle" disabled="disabled"></input>
@@ -53,9 +61,9 @@
 		<?php include('footer.php'); ?>
 	
 	</main>
-	<script language="javascript" type="text/javascript" src="../../script/dropdown-categories.js">
+	<script language="javascript" type="text/javascript" src="../../script/dropdown-categories.js"></script>
 	<script>
-		update("brand", "root");
+		update(0);
 	</script>
 	
     </body>
