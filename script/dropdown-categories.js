@@ -1,21 +1,27 @@
-let headings = {"brand" : "Hersteller", "model" : "Modell", "version" : "Ausführung"};
+/**
+ * Contains the headings of all dropdown menus in the correct order
+ */
+const HEADINGS = {
+	"brand" : "Hersteller",
+	"model" : "Modell",
+	"generation" : "Generation",
+	"series" : "Serie",
+	"trim" : "Trim"
+};
+
+/**
+ * Contains the ids of all dropdown menus in the correct order
+ */
+const DROPDOWN_IDS = ["brand", "model", "generation", "series", "trim"];
 
 /**
  * updates the select item with the select id, depending on the selected
  * item of the previous dropdown-content
  */
-function update(selectId, parentItem) {
-	var select = document.getElementById(selectId);
-	var headOption = document.createElement("option");
-	headOption.text = headings[selectId];
-	headOption.value = "";
-	select.innerHTML = "";
-	select.add(headOption);
-	
-	if (parentItem == "") {
-		executeOnChange(select);
-		return;
-	}
+function update(i) {
+	var values = getDropDownValues(i);
+	var path = values.join("#");
+	var select = document.getElementById(DROPDOWN_IDS[i]);
 	
 	if (window.XMLHttpRequest) {
 		xmlhttp = new XMLHttpRequest();
@@ -28,8 +34,33 @@ function update(selectId, parentItem) {
 			executeOnChange(select);
 		}
 	};
-	xmlhttp.open("GET", "getchildren.php?kind=" + encodeURIComponent(selectId) + "&item=" + encodeURIComponent(parentItem),true);
+	xmlhttp.open("GET", "getchildren.php?kind=" + i + "&path=" + encodeURIComponent(path),true);
 	xmlhttp.send();
+}
+
+/**
+ * Returns an array of all dropdown values in the correct order until (excluding)
+ * the first value that is equal to "".
+ * @return mentioned array
+ */
+function getDropDownValues(stage) {
+	var result = [];
+	
+	for (var i = 0; i < stage; i++) {
+		var dropdown = document.getElementById(DROPDOWN_IDS[i]);
+		if (dropdown == null) {
+			return result;
+		}
+		if (dropdown.value == "") {
+			if (i == 0) {
+				result.push[""];
+			}
+			return result;
+		}
+		result.push(dropdown.value);
+	}
+	
+	return result;
 }
 	
 /**
