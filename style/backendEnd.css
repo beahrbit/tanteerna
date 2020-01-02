@@ -1,0 +1,15 @@
+.Buttonstyle{
+	height: 40px;
+	width: auto;
+	border-radius: 10px;
+	border-right: 100px;
+}
+
+.main{
+	text-align: center;
+}
+
+table{
+	margin-left: auto;
+	margin-right: auto;
+}

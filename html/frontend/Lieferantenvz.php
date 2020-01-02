@@ -18,6 +18,7 @@
 		</div>
 		<br>
 		<div class="hauptinfo">
+			<!--
 			 <div class="Lieferantenalphatbet"><p><strong>   A</strong></p> </div>
 				<br> 
 				<p class="LieferP" > Alpha Tuning</p>
@@ -27,6 +28,7 @@
 			
 			<div class="Lieferantenalphatbet "> <p><strong>   B</strong></p> </div>
 				<p class="LieferP"> Bapfeli TUning</p>
+			-->
 		</div>
 		<br>
 		

@@ -131,6 +131,7 @@ function updateHidden() {
 	result.forEach((chip, i, arr) => arr[i] = chip.slice(0, -1))
 	result = result.join("|");
 	document.getElementById("car-hidden-input").innerHTML = result;
+	document.getElementById("car-hidden-input").value = result;
 }
 
 /**

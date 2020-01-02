@@ -9,24 +9,32 @@
     </head>
     <body>
 		<?php include('header.php'); ?>
-		
+		<br>
 		<div class="menuebox">
 			<div class="ganzlinksbox">
 				<img src="../../media/images/misc/auto.png" alt="Error404" height="70px" width="75px">
 			</div>
-		
-			<?php 
-				$array = ["Autohersteller", "Modell", "Ausfuehrung"];
-				for ($i = 0; i < sizeof($array); $i++) { ?>
 					<div class="linksobenbox">
 						<p class="pfuerVerlauf">
 							<strong>
-								<?php echo $_GET[$array[$i]]; ?>
+								<?php echo $_GET['Autohersteller']; ?>
 							</strong>
 						</p>
 					</div>
-			<?php } ?>
-		
+					<div class="linksobenbox">
+						<p class="pfuerVerlauf">
+							<strong>
+								<?php echo $_GET['Modell']; ?>
+							</strong>
+						</p>
+					</div>
+					<div class="linksobenbox">
+						<p class="pfuerVerlauf">
+							<strong>
+								<?php echo $_GET['Generation']; ?>
+							</strong>
+						</p>
+					</div>
 			<?php include('top-right-menu.php'); ?>
 		</div>
 	
@@ -35,28 +43,30 @@
 			<div class="containertabelle">
 				<table class="tabellengestaltung"><tr>
 				<?php 
-					$NebenKate = $_GET["abc"];
-					$v1 = $_GET["v1"];
-					$v2 = $_GET["v2"];
-					$v3 = $_GET["v3"];
+					/*	$NebenKate = $_GET["abc"];  */
+					$autohersteller = $_GET["Autohersteller"];
+					$modell = $_GET["Modell"];
+					$generation = $_GET["Generation"];
+					$serie = $_GET["Serie"];
+					$trim = $_GET["Trim"];
 					
 					$tablecontent = [
-						["Leistungssteigerung", "engine.png"],
+						["Leistungs - steigerung", "engine.png"],
 						["Fahrwerk und Achsen", "suspension.png"],
-						["Bremsen", "brake.png"],
+						["Bremsen" , "brake.png"],
 						["Ansaugtrakt", "intake.png"],
 						["Abgasanlage", "exhaust-pipe.png"],
 						
 						["Motoraufladung", "turbo.png"],
 						["Antriebsstrang", "settings.png"],
-						["Fahrzeuginnenraum", "safety-seat.png"],
+						["Fahrzeug - innenraum", "safety-seat.png"],
 						["Karosserie", "door.png"],
-						["Motorkomponenten", "pistons.png"],
+						["Motor - komponenten", "pistons.png"],
 						
-						["Fahrzeugelektrik", "elektrik.png"],
-						["Kraftstoffsystem", "kraftstoff.png"],
+						["Fahrzeug - elektrik", "elektrik.png"],
+						["Kraftstoff - system", "kraftstoff.png"],
 						["Oelkreislauf", "oel.png"],
-						["Wasserkreislauf", "wasser.png"],
+						["Wasser - kreislauf", "wasser.png"],
 						["Zylinderkopf", "motor.png"],
 						
 						["Zündanlage", "zuendkerze.png"],
@@ -66,12 +76,13 @@
 					for ($i = 0; $i < sizeof($tablecontent); $i++) { ?>
 						<td>
 							<form action='NebenKat.php' method='get' class='td'>
-								<input type='hidden' name='v1' value="<?php echo urlencode($v1);?>">
-								<input type='hidden' name='v2' value="<?php echo urlencode($v2);?>">
-								<input type='hidden' name='v3' value="<?php echo urlencode($v3);?>">
-								<input type='hidden' name='v4' value="<?php echo urlencode($NebenKate);?>">
-								<button type='submit' name='abc' value="<?php echo $tablecontent[$i][0];?>" class='HKbuttonBG'>
-									<img src="../../media/images/categories/main/<?php echo $tablecontent[$i][1];?>" alt='Error404' width="60px" height="60px">
+								<input type='hidden' name='autohersteller' value="<?php echo urlencode($autohersteller);?>">
+								<input type='hidden' name='modell' value="<?php echo urlencode($modell);?>">
+								<input type='hidden' name='generation' value="<?php echo urlencode($generation);?>">
+								<input type='hidden' name='serie' value="<?php echo urlencode($serie);?>">
+								<input type='hidden' name='trim' value="<?php echo urlencode($trim);?>">
+								<button type='submit' name='hauptkat' value="<?php echo $tablecontent[$i][0];?>" class='HKbuttonBG'>
+									<img src="../../media/images/categories/main/<?php echo $tablecontent[$i][1];?>" alt='Error404' width="60px" height="60px" class="Katimg">
 								</button>
 							</form>
 							<p><?php echo $tablecontent[$i][0];?></p>

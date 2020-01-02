@@ -14,9 +14,24 @@
     </head>
     <body>
 	<main>
-		<?php include('../frontend/header.php'); ?>
+		<?php include('header.php'); ?>
 	
 	<?php
+		//Datenbankverbindung herstellen:
+		$link = mysqli_connect("localhost","root","");
+		mysqli_select_db($link, "tuning_datenbankvol2");
+				
+		$Compname = $_SESSION['backmind'];
+			
+		$anzmax = "Select max_produkte FROM anbieter WHERE Firmenname = '$Compname' ;";
+		$anznow = "Select Count(*) From produkt WHERE anbieter = '$Compname' ;";
+			
+		$resmax=mysqli_query($link, $anzmax);
+		$resnow=mysqli_query($link, $anznow);
+			
+		$rowmax = mysqli_fetch_array($resmax);
+		$rownow = mysqli_fetch_array($resnow);
+			
 		if(!isset($_SESSION['user_id'])){
 			?>
 			<h2>Bitte melden Sie sich hier an:</h2>
@@ -36,7 +51,15 @@
 				<form>
 			</div>
 			<?php
-		}else{
+		}elseif ($rowmax["max_produkte"] <= $rownow["Count(*)"]){
+			
+			echo $rowmax["max_produkte"] . "<=" .  $rownow["Count(*)"] ;
+	?>
+		
+		<h2> Sie haben die maximale Anzahl an Produkten erreicht, bitte wenden Sie sich an das YourSpec Team um weitere 
+			 Produkte erstellen zu können. </h2>
+	<?php 	
+		}else {
 	?>
 	
 <div class="hauptinfo">
@@ -47,7 +70,7 @@
 			<tr>
 				<td>Produktname:</td>
 				<td>
-					<form action="AddPic.php" method="POST">
+					<form action="AddPic.php" method="POST" id="form">
 						<input type="text" name="Pname" required  class="egblength" />
 				</td>
 			</tr>
@@ -95,18 +118,20 @@
 		<br>
 		
 		<div class="Button">
-			<input type="submit" name="submit" value="Weiter"  class="Buttonstyle" />
-			</form>
+			<input type="submit" name="asd" value="Weiter"  class="Buttonstyle" />
 		</div>
+		</form>
 		<?php
-			
+			 $_SESSION['user_id'] = $_SESSION['backmind'];
 			}
 		
 		?>
-		
+		<br>
+		<br>
 		
 	</div>
 	</main>
+	<?php include('footer.php'); ?>
 	<script language="javascript" type="text/javascript" src="../../script/product-categories.js"></script>
 	<script>
 		update("main-categories", "root");

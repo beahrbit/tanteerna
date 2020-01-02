@@ -2,25 +2,25 @@
 <div id="footercontainer">
 	<div id="footer-menu-container" class="fill-width">
 		<div class="footerinhalt">
-			<a href="Idee.php" ><p><strong>Idee</strong></p></a>
+			<a href="../frontend/Idee.php" ><p><strong>Idee</strong></p></a>
 		</div>	
 		<div class="footerinhalt">
-			<a href="Lieferantenvz.php" ><p><strong>Partner</strong></p></a>
+			<a href="../frontend/Lieferantenvz.php" ><p><strong>Partner</strong></p></a>
 		</div>	
 		<div class="footerinhalt">
-			<a href="Kontakt.php" ><p><strong>Kontakt</strong></p></a>
+			<a href="../frontend/Kontakt.php" ><p><strong>Kontakt</strong></p></a>
 		</div>	
 		<div class="footerinhalt">
-			<a href="Impressum.php" ><p><strong>Impressum</strong></p></a>
+			<a href="../frontend/Impressum.php" ><p><strong>Impressum</strong></p></a>
 		</div>	
 		<div class="footerinhalt">
-			<a href="AGB.php" ><p><strong>AGB's</strong></p></a>
+			<a href="../frontend/AGB.php" ><p><strong>AGB's</strong></p></a>
 		</div>
 		<div class="footerinhalt">
-			<a href="Datenschutz.php" ><p><strong>Datenschutz</strong></p></a>
+			<a href="../frontend/Datenschutz.php" ><p><strong>Datenschutz</strong></p></a>
 		</div>
 		<div class="footerinhalt">
-			<a href="../backend/Produkteingabe.php" ><p><strong>Anbieterlogin</strong></p></a>
+			<a href="Logout.php" ><p><strong>Logout</strong></p></a>
 		</div>
 		<div class="footerinhaltLogos">
 			<a href="https://www.instagram.com/yourspec.de/?igshid=avpmmu62mtsb">

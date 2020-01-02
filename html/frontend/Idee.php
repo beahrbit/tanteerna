@@ -11,12 +11,12 @@
 		<?php include('header.php'); ?>
 		
 		<div class="menuebox">
-			<div class="ganzlinksbox">
+			<div class="ganzlinksboxlangeUeberschrift">
 				<h2>Die Idee hinter YourSpec</h2>
 			</div>
 			<?php include('top-right-menu.php'); ?>
 		</div>
-		<br><br>
+		<br>
 		<div class="hauptinfo">
 			<div class="ideebox">
 				<img src="../../media/images/pictures/idee.png" alt="Error404">

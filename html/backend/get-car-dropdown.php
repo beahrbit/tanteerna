@@ -2,7 +2,6 @@
 	$headlines = ["Hersteller", "Modell", "Generation", "Serie", "Trim"];
 	$ids = ["brand", "model", "generation", "series", "trim"];
 	$db = ["name", "modelname", "generationname", "seriename", "trimname"];
-
 	$path = explode("#", urldecode($_GET["path"]));
 	$stage = sizeof($path);
 	if ($_GET["path"] == "") {

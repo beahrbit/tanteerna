@@ -9,13 +9,13 @@
 	float : left;
 	height: 50px;
 	width: 50px;
-	margin-bottom: 30px;
 }
 
 .kontaktps{
 	text-align:left;
 	color: black;
 	text-indent: 15px;
+	
 
 }
 .Kontaktbox{
@@ -27,4 +27,24 @@
 .Kontaktframe{
 	height: 400px;
 	width: 100%;
+}
+
+table{
+margin-right: auto;
+margin-left: auto;
+border-spacing: 30px 5px;
+
+}
+
+td{
+margin-top: auto;
+margin-bottom: auto;
+vertical-align: middle;
+}
+
+.adress{
+	text-align:left;
+	color: black;
+	text-indent: 15px;
+	margin-bottom: -10px;
 }
