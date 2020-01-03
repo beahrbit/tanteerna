@@ -10,27 +10,29 @@
     <body>
 		<?php include('header.php'); ?>
 		
-		<div class="menuebox">
-			<div class="ganzlinksbox">
-				<h2>Partner</h2>
+		<div id="content-container">
+			<div class="menuebox">
+				<div class="ganzlinksbox">
+					<h2>Partner</h2>
+				</div>
+				<?php include('top-right-menu.php'); ?>
 			</div>
-			<?php include('top-right-menu.php'); ?>
+			<br>
+			<div class="hauptinfo">
+				<!--
+				 <div class="Lieferantenalphatbet"><p><strong>   A</strong></p> </div>
+					<br> 
+					<p class="LieferP" > Alpha Tuning</p>
+					<p class="LieferP"> ABC Tuning</p>
+					<p class="LieferP"> Apfel TUning</p>
+					<p class="LieferP"> Apfeli TUning</p>
+				
+				<div class="Lieferantenalphatbet "> <p><strong>   B</strong></p> </div>
+					<p class="LieferP"> Bapfeli TUning</p>
+				-->
+			</div>
+			<br>
 		</div>
-		<br>
-		<div class="hauptinfo">
-			<!--
-			 <div class="Lieferantenalphatbet"><p><strong>   A</strong></p> </div>
-				<br> 
-				<p class="LieferP" > Alpha Tuning</p>
-				<p class="LieferP"> ABC Tuning</p>
-				<p class="LieferP"> Apfel TUning</p>
-				<p class="LieferP"> Apfeli TUning</p>
-			
-			<div class="Lieferantenalphatbet "> <p><strong>   B</strong></p> </div>
-				<p class="LieferP"> Bapfeli TUning</p>
-			-->
-		</div>
-		<br>
 		
 		<?php include('footer.php'); ?>
     </body>

@@ -10,22 +10,24 @@
     <body>
 		<?php include('header.php'); ?>
 		
-		<div class="menuebox">
-			<div class="ganzlinksboxlangeUeberschrift">
-				<h2>Die Idee hinter YourSpec</h2>
+		<div id="content-container">
+			<div class="menuebox">
+				<div class="ganzlinksboxlangeUeberschrift">
+					<h2>Die Idee hinter YourSpec</h2>
+				</div>
+				<?php include('top-right-menu.php'); ?>
 			</div>
-			<?php include('top-right-menu.php'); ?>
-		</div>
-		<br>
-		<div class="hauptinfo">
-			<div class="ideebox">
-				<img src="../../media/images/pictures/idee.png" alt="Error404">
-				<img src="../../media/images/pictures/overview.png" alt="Error404">
-				<img src="../../media/images/pictures/wina.png" alt="Error404" width="550px" height="400px">
-				<img src="../../media/images/pictures/winp.png" alt="Error404" width="550px" height="400px">
+			<br>
+			<div class="hauptinfo">
+				<div class="ideebox">
+					<img src="../../media/images/pictures/idee.png" alt="Error404">
+					<img src="../../media/images/pictures/overview.png" alt="Error404">
+					<img src="../../media/images/pictures/wina.png" alt="Error404" width="550px" height="400px">
+					<img src="../../media/images/pictures/winp.png" alt="Error404" width="550px" height="400px">
+				</div>
 			</div>
+			<br><br><br>
 		</div>
-		<br><br><br>
 	
 		<?php include('footer.php'); ?>
     </body>

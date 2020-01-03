@@ -85,7 +85,7 @@ function updateDropdown(i) {
 		container.innerHTML = "";
 	} else {
 		ajax(
-			"get-car-dropdown.php?path=" + encodeURIComponent(path),
+			"get-car-dropdown.php?kind=" + i + "&path=" + encodeURIComponent(path),
 			function (response) {
 				container.innerHTML = response.responseText;
 			}
