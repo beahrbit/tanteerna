@@ -10,21 +10,20 @@
 		
     </head>
     <body>
-	
-	<?php include('header.php'); ?>
-	
-	<br>
-	<div class="Motorblock">
-		<img src="../../media/images/dummi.png" alt="Error404" width="300" height="300">
-	</div>
-	
-	<div >
-		<h2 class="Dummischriftoben">Unsere Website ist gerade in der Werkstatt</h2>
-	</div>
-	
-	<div >
-		<h2 class="Dummischriftunten">	Wir arbeiten mit Hochdruck daran!</h2>
-	</div>
+		<!-- test -->
+		<?php include('header.php'); ?>
+		<br>
+		<div class="Motorblock">
+			<img src="../../media/images/dummi.png" alt="Error404" width="300" height="300">
+		</div>
+		
+		<div >
+			<h2 class="Dummischriftoben">Unsere Website ist gerade in der Werkstatt</h2>
+		</div>
+		
+		<div >
+			<h2 class="Dummischriftunten">	Wir arbeiten mit Hochdruck daran!</h2>
+		</div>
 		<?php include('dummifooter.php'); ?>
     </body>
 </html>
