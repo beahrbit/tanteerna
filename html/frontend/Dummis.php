@@ -25,9 +25,7 @@
 	<div >
 		<h2 class="Dummischriftunten">	Wir arbeiten mit Hochdruck daran!</h2>
 	</div>
-	
+		<!-- test -->
 		<?php include('dummifooter.php'); ?>
-	
-	
     </body>
 </html>
