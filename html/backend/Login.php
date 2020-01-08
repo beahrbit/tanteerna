@@ -1,43 +1,37 @@
 <?php
 	session_start();
 ?>
-
 <html lang="en">
     <head>
+        <link rel="stylesheet" type="text/css" href="../../style/StartLayout.css">
+		<link rel="stylesheet" type="text/css" href="Produkteingabecss.css">
+        <meta charset="utf-8" />
+        <title>YourSpec</title>
     </head>
     <body>
-	<?php
-		$user = $_POST['user'];
-		$pwd = hash("sha512", $_POST['pwd']);
-	
-	
-	
-		//Datenbankverbindung herstellen:
-		$link = mysqli_connect("localhost","root","");
-	    mysqli_select_db($link, "tuning_datenbankvol2");
-		$sql = "Select * FROM anbieter Where username = '$user' AND password = '$pwd' ;";
-			
-		$res=mysqli_query($link, $sql);
-		
-		if(mysqli_num_rows($res)==0){
-			echo $pwd;
-			echo "Benutzer nicht gefunden, bitte versuchen sie es erneut: "; ?> <a href="Produkteingabe.php"> Anmelden </a> <?php
-			
-		}
-		else{
-			$que = mysqli_fetch_array($res);
-			
-			$_SESSION['user_id'] = $que['Firmenname'];
-			$_SESSION['backmind'] = $que['Firmenname'];
-			header('location: Produkteingabe.php');
-			exit;
-		}
-		
-		
-		
-		
-	?>
-		
-	
+		<main>
+		<?php include('header.php'); ?>
+		<div id="content-container">
+			<h2>Bitte melden Sie sich hier an:</h2>
+			<?php
+				$_SESSION['LoginOk'] = "Ok";
+			?>
+			<div class="Button">
+				<form action="anbieterHome.php" method="POST">
+				<table>
+					<tr>
+						<td>Benutzername: </td>
+						<td><input type="text" name="user" required /> </td>
+					</tr>
+					<tr>
+						<td>Password: </td> 
+						<td><input type="password" name="pwd" required /></td>
+					</tr>
+				</table>
+					<input type="submit" name="submit" value="Anmelden" class="Anmeldebutton"/>
+				<form>
+			</div>
+		</div>
+		<?php include('footer.php'); ?>	
     </body>
 </html>

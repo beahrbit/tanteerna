@@ -88,6 +88,10 @@ a{
 	text-decoration: none;
 }
 
+.linkblau{
+	color: blue;
+}
+
 /*Begin der Hauptinformationsbox*/
 .hauptinfo{
 	margin-left: 4%;

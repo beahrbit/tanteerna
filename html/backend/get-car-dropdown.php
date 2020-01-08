@@ -26,7 +26,7 @@
 		<option value="">Alle</option>
 		
 		<?php 
-		if ($stage >= $kind ) {
+		if($stage>=$kind) {
 			$link = mysqli_connect("localhost","root","");
 			mysqli_select_db($link, "tuning_datenbankvol2");
 			
@@ -47,8 +47,6 @@
 						make.name AS makename, 
 						model.name AS modelname, 
 						generation.name AS generationname, 
-							generation.year_begin AS begin,
-							generation.year_end AS end,
 						serie.name AS seriename, 
 						trim.name AS trimname
 					FROM car_make make 
@@ -62,14 +60,11 @@
 			
 			$res = mysqli_query($link, $sql);
 			while ($row = mysqli_fetch_array($res)) {  
-				$value = $row[$db[$stage]];
-				$utf_value = utf8_encode($value);
-				if ($stage == 2) {
-					$utf_value .= " (" . $row["begin"] . "-" . $row["end"] . ")";
-				}
-				echo "<option value='$value'>$utf_value</option>";
+				$value = utf8_encode($row[$db[$stage]]); 
+				echo "<option value='$value'>$value</option>";
 			} 
-		} ?>
+		}
+		?>
 	</select>
 </div>
 

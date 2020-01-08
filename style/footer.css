@@ -2,12 +2,12 @@
 	width: 100%;
 }
 
-body {
+body{
 	position: relative;
 	min-height: 100vh;
 }
 
-#content-container {
+#content-container{
 	padding-bottom: 85px;
 }
 

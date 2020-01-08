@@ -14,9 +14,15 @@
     <body>
 		<main>
 		<?php include('header.php'); ?>
-		
 		<div id="content-container">
-				<?php
+			<?php
+				if(!isset($_SESSION['user_id'])){
+			?>
+				<h3> Benutzer nicht gefunden, bitte versuchen sie es erneut: <a href="Login.php" class="linkblau"> Anmelden </a> </h3>
+			<?php
+				}else{
+					
+					
 					$Pname = $_POST['Pname'];
 					$Hauptkategorie = $_POST['Hauptkategorie'];
 					$Nebenkategorie = $_POST['Nebenkategorie'];
@@ -31,26 +37,12 @@
 					$Hiseven = $_POST['Hiseven'];
 					$Hieight = $_POST['Hieight'];
 					$Hifour = $_POST['Hifour'];
-				?>
-		
-				<?php
-					if(!isset($_SESSION['user_id'])){
-				?>
-					<h2>Bitte melden Sie sich hier an:</h2>
-					<form action="Login.php" method="POST">
-					<p>Benutzername: <input type="text" name="user" required /></p>
-					<p>Password: <input type="password" name="pwd" required /></p>
-					<input type="submit" name="submit" value="Anmelden"/>
-					<form>
-				
-				<?php
-					}else{
-				?>
-		
-			<div class="hauptinfo">
-					<h2>Produktbild:</h2>
-					<div class="Button">
-					<form action="" method="post" enctype="multipart/form-data">
+			?>
+	
+		<div class="hauptinfo">
+				<h2>Produktbild:</h2>
+				<div class="Button">
+					<form method="post"  enctype="multipart/form-data">
 						<input type='hidden' name='Pname' value="<?php echo $Pname; ?>">
 						<input type='hidden' name='Hauptkategorie' value="<?php echo $Hauptkategorie; ?>">
 						<input type='hidden' name='Nebenkategorie' value="<?php echo $Nebenkategorie; ?>">
@@ -66,96 +58,105 @@
 						<input type='hidden' name='Hifive' value="<?php echo $Hifive; ?>">
 						<input type='hidden' name='Hisix' value="<?php echo $Hisix; ?>">
 						<input type='hidden' name='Hiseven' value="<?php echo $Hiseven; ?>">
-						<input type='hidden' name='Hieight' value="<?php echo $Hieight; ?>">
-						<input type="file" name="Picture" id="Picture" required />						
-						<input type="submit" name="submit" value="Weiter" class="Buttonstyle"></input>					
+						<input type='hidden' name='Hieight' value="<?php echo $Hieight; ?>">	
+						<input type="file" name="Picture" id="Picture" required />	
+						<input type="submit" name="submit" value="Hochladen" class="Buttonstyle">
 					</form>
-					<br>
-					<p>Das Bild sollte folgende Eigenschaften besitzen</p>
-					<ul>
-						<li>Format: png oder jpg/jpeg</li>
-						<li>Maximalgröße: 6MB</li>
-						<li>Auflösung: gut bis sehr gut</li>
-					</ul>
-			</div>
-					<?php
-						if(isset($_POST["submit"])){
-							$randomOne= chr( mt_rand( 97 , 122 ) );
-							$randomTwo= chr( mt_rand( 97 , 122 ) );
-							$randomThree= chr( mt_rand( 97 , 122 ) );
-							$randomEnd = $randomOne . $randomTwo . $randomThree;
-							$zielpfad="../../media/images/products/";
-							$filename = $randomEnd . basename($_FILES["Picture"]["name"]);
-							$zieldatei= $zielpfad . $filename;
-							$error = 0;
-							$endung = strtoupper(pathinfo($zieldatei, PATHINFO_EXTENSION));
-							
-							
-							if((getimagesize($_FILES["Picture"]["tmp_name"])) === false){
-								$error = 1;
-							}
-							
-							if($endung != strtoupper("png") && $endung != strtoupper("jpg") && $endung != strtoupper("jpeg")){
-								$error = 2;
-							}
-							
-							if(file_exists($zieldatei)){
-								$error = 3;
-							}
-							
-							if($_FILES["Picture"]["size"] > 6*1024*1024){
-								$error = 4;
-							}
-							
-							
-							
-						if($error == 0){
-							if(move_uploaded_file($_FILES["Picture"]["tmp_name"], $zieldatei))
-							{
-								$Anbietername = $_SESSION['user_id'];
-								$link = mysqli_connect("localhost","root","");
-								mysqli_select_db($link, "tuning_datenbankvol2");
-								
-								$sql = "INSERT INTO produkt (Produktname, Produktbild, Beschreibung, Anbieter,
-															Preis, Kategorie, Unterkategorie, Produktlink,
-															Heins, Hzwei, Hdrei, Hvier, Hfuenf, Hsechs, Hsieben, Hacht) 
-															VALUES 
-															('$Pname','$filename','$Pbeschreibung','$Anbietername'
-															,'intval($Preis)','$Hauptkategorie','$Nebenkategorie','$Plink',
-															'$Hione','$Hitwo','$Hithree','$Hifour',
-															'$Hifive','$Hisix','$Hiseven','$Hieight');";
-															
-								$res=mysqli_query($link, $sql);
-								/* gestern abend*/
-								$sql = "SELECT * FROM produkt WHERE Produktname = '$Pname' AND Produktbild = '$filename'
-																	AND Beschreibung = '$Pbeschreibung' 
-																	AND Produktlink = '$Plink';";
-								
-								$res = mysqli_query($link, $sql);
-								$que = mysqli_fetch_array($res);
-								$_SESSION['user_id'] = $que['ID'];
-								
-								
-								header('location: car-selection.php');
-								exit;
-								
-							}else{
-								echo "Upload failed!";
-							}
-						}
-						else{
-							echo $endung . $error . "Fehler bei der Eingabe! Achten sie auf die vorgegebenen EIgenschaften und Versuchen sie es erneut!";
-						}
-						}
-					?>
-					<br>
-					<br>
-			</div>	
+				<br>
+				<p>Das Bild sollte folgende Eigenschaften besitzen</p>
+				<ul>
+					<li>Format: png oder jpg/jpeg</li>
+					<li>Maximalgröße: 6MB</li>
+					<li>Auflösung: gut bis sehr gut</li>
+				</ul>
+				<div class="Button">
+				<form action="car-selection.php" method="post">				
+					<input type="submit" name="weiter" value="Weiter" class="Buttonstyle"></input>					
+				</form>
+		</div>
 				<?php
+					if(isset($_POST["submit"])){
+						$randomOne= chr( mt_rand( 97 , 122 ) );
+						$randomTwo= chr( mt_rand( 97 , 122 ) );
+						$randomThree= chr( mt_rand( 97 , 122 ) );
+						$randomEnd = $randomOne . $randomTwo . $randomThree;
+						$zielpfad="../../media/images/products/";
+						$filename = $randomEnd . basename($_FILES["Picture"]["name"]);
+						$zieldatei= $zielpfad . $filename;
+						$error = 0;
+						$endung = strtoupper(pathinfo($zieldatei, PATHINFO_EXTENSION));
+						
+						
+						if((getimagesize($_FILES["Picture"]["tmp_name"])) === false){
+							$error = 1;
+						}
+						
+						if($endung != strtoupper("png") && $endung != strtoupper("jpg") && $endung != strtoupper("jpeg")){
+							$error = 2;
+						}
+						
+						if(file_exists($zieldatei)){
+							$error = 3;
+						}
+						
+						if($_FILES["Picture"]["size"] > 6*1024*1024){
+							$error = 4;
+						}
+						
+						
+						
+					if($error == 0){
+						if(move_uploaded_file($_FILES["Picture"]["tmp_name"], $zieldatei))
+						{	
+							$sub = 0;
+							$Anbietername = $_SESSION['backmind'];
+							$link = mysqli_connect("localhost","root","");
+							mysqli_select_db($link, "tuning_datenbankvol2");
+							
+							$delete = "DELETE FROM produkt WHERE Produktname = '$Pname' AND Beschreibung = '$Pbeschreibung' 
+															AND Anbieter = '$Anbietername' AND Preis = '$Preis'
+															AND Produktlink = '$Plink' ;";
+															
+							$del=mysqli_query($link, $delete);
+							
+							$sql = "INSERT INTO produkt (Produktname, Produktbild, Beschreibung, Anbieter,
+														Preis, Kategorie, Unterkategorie, Produktlink,
+														Heins, Hzwei, Hdrei, Hvier, Hfuenf, Hsechs, Hsieben, Hacht) 
+														VALUES 
+														('$Pname','$filename','$Pbeschreibung','$Anbietername'
+														,'$Preis','$Hauptkategorie','$Nebenkategorie','$Plink',
+														'$Hione','$Hitwo','$Hithree','$Hifour',
+														'$Hifive','$Hisix','$Hiseven','$Hieight');";
+														
+							$res=mysqli_query($link, $sql);
+							/* gestern abend*/
+							$sql = "SELECT * FROM produkt WHERE Produktname = '$Pname' AND Produktbild = '$filename'
+																AND Beschreibung = '$Pbeschreibung' 
+																AND Produktlink = '$Plink';";
+							
+							$res = mysqli_query($link, $sql);
+							$que = mysqli_fetch_array($res);
+							$_SESSION['user_id'] = $que['ID'];	
+
+							echo "Das Bild wurde erfolgreich hochgeladen, wenn sie ein weiteres Bild hochladen, wird das vorherige Bild gelöscht!";
+							
+						}else{
+							echo "Upload failed!";
+						}
+					}
+					else{
+						echo $endung . $error . "Fehler bei der Eingabe! Achten sie auf die vorgegebenen EIgenschaften und Versuchen sie es erneut!";
+					}
 					}
 				?>
+				<br>
+				<br>
+		</div>	
+			<?php
+				}
+			?>
 		</div>
-		
+		</div>
 		<?php include('footer.php'); ?>	
     </body>
 </html>

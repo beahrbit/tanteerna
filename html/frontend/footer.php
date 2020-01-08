@@ -20,7 +20,7 @@
 			<a href="Datenschutz.php" ><p><strong>Datenschutz</strong></p></a>
 		</div>
 		<div class="footerinhalt">
-			<a href="../backend/Produkteingabe.php" ><p><strong>Anbieterlogin</strong></p></a>
+			<a href="../backend/Login.php" ><p><strong>Anbieterlogin</strong></p></a>
 		</div>
 		<div class="footerinhaltLogos">
 			<a href="https://www.instagram.com/yourspec.de/?igshid=avpmmu62mtsb">

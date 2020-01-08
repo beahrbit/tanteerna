@@ -4,7 +4,7 @@
 		<img src="../../media/images/misc/dreilines.png" alt="Error404" height="40px" width="40px">
 	</button>
 	<div id="dropdown-content" align="right">
-		<a href="Home.php">Home</a>
+		<a href="../../../index.php">Home</a>
 		<a href="Idee.php">Idee</a>
 		<a href="Lieferantenvz.php">Partner</a>
 		<a href="Kontakt.php">Kontakt</a>
@@ -14,7 +14,7 @@
 	</div>
 </div>
 <div class="rechtsobenbox">
-	<a href="Home.php"><img src="../../media/images/misc/haus.png" alt="Error404" height="40px" width="40px"></a>
+	<a href="../../../index.php"><img src="../../media/images/misc/haus.png" alt="Error404" height="40px" width="40px"></a>
 </div>
 <div class="rechtsobenbox">
 	<a href="Idee.php"><img src="../../media/images/misc/info.png" alt="Error404" height="40px" width="40px"></a>
