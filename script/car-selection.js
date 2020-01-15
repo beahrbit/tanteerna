@@ -26,8 +26,9 @@ var chipController = new ChipController(
 	 * will be in different lines in the chip.
 	 * @return dropdown contents as string
 	 */
-	function() {
-		var car = getDropDownValues(5).join("<br>");
+	function(contentText) {
+		contentText = contentText.slice(0, -1);
+		var car = contentText.replace(/#/g, "<br>");
 		if (car == "") {
 			car = "Alle Autos";
 		}
@@ -48,6 +49,24 @@ var chipController = new ChipController(
 	// prevent dependet chips (in tree)
 	true
 );
+
+/**
+ * Reads the value from the hidden-input with id 'id' and adds all included
+ * car-chips to the chip container. If the hidden-inputs value is empty, nothing
+ * is done.
+ * @param id is the inputs id, from which all starting imformation are read
+ */
+function readFrom(id) {
+	var chips = document.getElementById(id).value.split("|");
+	if (chips.length == 1 && chips[0] == "") {
+		return;
+	}
+	
+	for (var i = 0; i < chips.length; i++) {
+		chipController.addChip(chips[i] + "#");
+	}
+	handleAddButton();
+}
 
 /**
  * Uses the ChipController instance to add a chip with the content defined
@@ -130,7 +149,6 @@ function updateHidden() {
 	let result = chipController.chipsContent;
 	result.forEach((chip, i, arr) => arr[i] = chip.slice(0, -1))
 	result = result.join("|");
-	document.getElementById("car-hidden-input").innerHTML = result;
 	document.getElementById("car-hidden-input").value = result;
 }
 
