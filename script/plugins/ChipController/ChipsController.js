@@ -8,7 +8,7 @@ class ChipController {
 	 * 	in this class 
 	 * @param chipCreator is a callback function that gathers all information 
 	 * 	needed for the chip and returns the link to the .php-file that defines the 
-	 * 	chip
+	 * 	chip. As a parameter it gets the contentText sent via addChip()-methode.
 	 * @param onRemove is a method that is called when a chip is deleted. This method
 	 *	expects the content, the deleted chip was created with, as parameter
 	 * @param preventDependentChips defines whether dependet chips are allowed. If so: 
@@ -26,6 +26,7 @@ class ChipController {
 		this.filePath = this.getFilePath();
 		this.chips = {};
 		this.index = 0;
+		this.pendingChips = [];
 	}
 	
 	/**
@@ -44,8 +45,8 @@ class ChipController {
 		}
 		
 		// update: for some reasons important to be called first
-		this.chips[this.index.toString()] = contentText;
-		console.log(this.chips);
+		this.chips[this.index.toString()] = ""; //init: important
+		this.pendingChips.push(this.index);
 		this.index++;
 				
 		// create chip
@@ -57,10 +58,14 @@ class ChipController {
 				
 				this.caller.ajax(
 					this.caller,
-					this.caller.chipCreator(),
+					this.caller.chipCreator(contentText),
 					function (response) {
-						var chipContainer = document.getElementById(this.caller.prefix + "-chip-" + (this.caller.index-1));
+						var index = this.caller.pendingChips.shift();
+						
+						var chipContainer = document.getElementById(this.caller.prefix + "-chip-" + index);
 						chipContainer.innerHTML = response.responseText + chipContainer.innerHTML;
+						
+						this.caller.chips[index.toString()] = contentText;
 					}
 				);
 			}
@@ -81,7 +86,6 @@ class ChipController {
 		// remove chip content from array
 		var deletedContent = this.chips[id];
 		delete this.chips[id]
-		console.log(this.chips);
 		
 		this.onRemove(deletedContent);
 	}
