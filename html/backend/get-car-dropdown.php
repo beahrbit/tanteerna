@@ -60,8 +60,12 @@
 			
 			$res = mysqli_query($link, $sql);
 			while ($row = mysqli_fetch_array($res)) {  
-				$value = utf8_encode($row[$db[$stage]]); 
-				echo "<option value='$value'>$value</option>";
+				$value = $row[$db[$stage]];
+				$utf_value = utf8_encode($value);
+				if ($stage == 2) {
+					$utf_value .= " (" . $row["begin"] . "-" . $row["end"] . ")";
+				}
+				echo "<option value='$value'>$utf_value</option>";
 			} 
 		}
 		?>
