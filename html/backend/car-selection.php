@@ -23,10 +23,9 @@
 				$existingChips = [];
 				if (isset($_POST["id"])) {
 					$productId = urldecode($_POST["id"]);
-					$nextFile = "afterconfig.php"
-					
-					$connection = new DatabaseConnection();
-					$link = $connection->connect();
+					$nextFile = "afterconfig.php";
+					$link = mysqli_connect("localhost","web26762838","mlVIPbDT");
+					mysqli_select_db($link, "usr_web26762838_1");
 					$car = mysqli_query($link, "SELECT * FROM a_p_beziehung WHERE produkt_fk = '$productId';");
 					while ($new = mysqli_fetch_array($car)) {
 						$array = [
@@ -64,7 +63,8 @@
 							value="<?php echo implode("|", $existingChips); ?>"
 						>
 						<div class="fill-width">
-							<input class="button-style" id="car-submit-button" type="submit" name="submit" value="abschicken">
+							<input type="hidden" value="<?php echo $productId; ?>" name="id"/>
+							<button class="button-style" id="car-submit-button" name="info" value="cars" onclick="updateHidden();">Anpassen</button>	
 						</div>
 					</form>
 				</div>

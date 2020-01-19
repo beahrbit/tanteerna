@@ -20,8 +20,8 @@
 	<div id="content-container">
 	<?php	
 		//Datenbankverbindung herstellen:
-		$link = mysqli_connect("localhost","root","");
-		mysqli_select_db($link, "tuning_datenbankvol2");
+		$link = mysqli_connect("localhost","web26762838","mlVIPbDT");
+		mysqli_select_db($link, "usr_web26762838_1");
 				
 		$Compname = $_SESSION['backmind'];
 			

@@ -24,8 +24,8 @@
 		$pwd = hash("sha512", $_POST['pwd']);
 	
 		//Datenbankverbindung herstellen:
-		$link = mysqli_connect("localhost","root","");
-	    mysqli_select_db($link, "tuning_datenbankvol2");
+		$link = mysqli_connect("localhost","web26762838","mlVIPbDT");
+		mysqli_select_db($link, "usr_web26762838_1");
 		$sql = "Select * FROM anbieter Where username = '$user' AND password = '$pwd' ;";
 			
 		$res=mysqli_query($link, $sql);
@@ -50,17 +50,13 @@
 		<?php
 		}
 		?>
-	
-	
-	
-	
 			<?php
 			/*
 			$link = mysqli_connect("localhost","web26762838","mlVIPbDT");
 			mysqli_select_db($link, "usr_web26762838_1");
 			*/
-			$link = mysqli_connect("localhost","root","");
-			mysqli_select_db($link, "tuning_datenbankvol2");
+			$link = mysqli_connect("localhost","web26762838","mlVIPbDT");
+			mysqli_select_db($link, "usr_web26762838_1");
 			
 			$Anbietername = $_SESSION['backmind'];
 			
@@ -92,14 +88,37 @@
 							<div class="produktbeschreibung">
 								<h3><?php echo utf8_encode($row["Produktname"]); ?></h3>
 								<h4><?php echo utf8_encode($row["Anbieter"]); ?></h4> 
+								<?php 
+									$HK = utf8_encode($row['Kategorie']);
+									$NK = utf8_encode($row['Unterkategorie']);
+									
+									//Datenbankverbindung herstellen:
+									$link = mysqli_connect("localhost","web26762838","mlVIPbDT");
+									mysqli_select_db($link, "usr_web26762838_1");
+									$sql = "SELECT * FROM highlights INNER JOIN kategorien ON highlights.h_id = kategorien.highlight_fk
+														WHERE hauptkategorie = '$HK' AND nebenkategorie = '$NK' ;";
+											
+									$high=mysqli_query($link, $sql);
+									
+									$rowhigh = mysqli_fetch_array($high); 
+								
+								?>
 								<table>
 									<tr>
-										<td><lu><li class='highlight'><?php echo utf8_encode($row["Heins"]); ?></li></lu></td>
-										<td><lu><li class='highlight'><?php echo utf8_encode($row["Hzwei"]); ?></li></lu></td>
+										<?php if(utf8_encode($row["Heins"]) != "Null"){?>
+											<td><lu><li class='highlight'><?php echo  utf8_encode($rowhigh["Heins"]).utf8_encode($row["Heins"]); ?></li></lu></td>
+										<?php } ?>
+										<?php if(utf8_encode($row["Hzwei"]) != "Null"){?>
+											<td><lu><li class='highlight'><?php echo  utf8_encode($rowhigh["Hzwei"]).utf8_encode($row["Hzwei"]); ?></li></lu></td>
+										<?php } ?>
 									</tr>
 									<tr>
-										<td><lu><li class='highlight'><?php echo utf8_encode($row["Hdrei"]); ?></li></lu></td>
-										<td><lu><li class='highlight'><?php echo utf8_encode($row["Hvier"]); ?></li></lu></td>
+										<?php if(utf8_encode($row["Hdrei"]) != "Null"){?>
+											<td><lu><li class='highlight'><?php echo  utf8_encode($rowhigh["Hdrei"]).utf8_encode($row["Hdrei"]); ?></li></lu></td>
+										<?php } ?>
+										<?php if(utf8_encode($row["Hvier"]) != "Null"){?>
+											<td><lu><li class='highlight'><?php echo  utf8_encode($rowhigh["Hvier"]).utf8_encode($row["Hvier"]); ?></li></lu></td>
+										<?php } ?>
 									</tr>
 								</table>
 							</div>
@@ -108,12 +127,17 @@
 							</div>
 				</div>
 				<div class="Buttonbox">
-					<form method="Post">
-						<input type="submit" name="delete" value="Lö" class="config_button">
+					<form action="afterconfig.php" method="Post">
+						<input type="hidden" name="id" value="<?php echo $row["ID"]; ?>">
+						<button type="submit" name="info" value="delete" class="config_button">
+							<img src="../../media/images/misc/delete.png" alt='Error404' width="35px" height="35px" class="Katimg">
+						</button>
 					</form>
 					<form action="produktuebersicht.php" method="Post">
 						<input type="hidden" name="id" value="<?php echo $row["ID"]; ?>">
-						<input type="submit" name="config" value="Co" class="config_button">
+						<button type="submit" name="info" value="Co" class="config_button">
+							<img src="../../media/images/misc/settings.png" alt='Error404' width="35px" height="35px" class="Katimg">
+						</button>
 					</form>
 				</div>
 			</div>

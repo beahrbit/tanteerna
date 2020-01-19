@@ -29,14 +29,30 @@
 					$Pbeschreibung = $_POST['Pbeschreibung'];
 					$Preis = $_POST['Preis'];
 					$Plink = $_POST['Plink'];
-					$Hione = $_POST['Hione'];
-					$Hitwo = $_POST['Hitwo'];
-					$Hithree = $_POST['Hithree'];
-					$Hifive = $_POST['Hifive'];
-					$Hisix = $_POST['Hisix'];
-					$Hiseven = $_POST['Hiseven'];
-					$Hieight = $_POST['Hieight'];
-					$Hifour = $_POST['Hifour'];
+					if (isset($_POST["Hione"])) {
+						$Hione = $_POST['Hione'];
+					}
+					if (isset($_POST["Hitwo"])) {
+						$Hitwo = $_POST['Hitwo'];
+					}
+					if (isset($_POST["Hithree"])) {
+						$Hithree = $_POST['Hithree'];
+					}
+					if (isset($_POST["Hifive"])) {
+						$Hifive = $_POST['Hifive'];
+					}
+					if (isset($_POST["Hisix"])) {
+						$Hisix = $_POST['Hisix'];
+					}
+					if (isset($_POST["Hiseven"])) {
+						$Hiseven = $_POST['Hiseven'];
+					}
+					if (isset($_POST["Hieight"])) {
+						$Hieight = $_POST['Hieight'];
+					}
+					if (isset($_POST["Hifour"])) {
+						$Hifour = $_POST['Hifour'];
+					}
 			?>
 	
 		<div class="hauptinfo">
@@ -110,8 +126,8 @@
 						{	
 							$sub = 0;
 							$Anbietername = $_SESSION['backmind'];
-							$link = mysqli_connect("localhost","root","");
-							mysqli_select_db($link, "tuning_datenbankvol2");
+							$link = mysqli_connect("localhost","web26762838","mlVIPbDT");
+							mysqli_select_db($link, "usr_web26762838_1");
 							
 							$delete = "DELETE FROM produkt WHERE Produktname = '$Pname' AND Beschreibung = '$Pbeschreibung' 
 															AND Anbieter = '$Anbietername' AND Preis = '$Preis'
