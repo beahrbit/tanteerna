@@ -24,8 +24,8 @@
 				$id =  $_SESSION['user_id'];
 				
 				//Datenbankverbindung herstellen:
-				$link = mysqli_connect("localhost","root","");
-				mysqli_select_db($link, "tuning_datenbankvol2");
+				$link = mysqli_connect("localhost","web26762838","mlVIPbDT");
+				mysqli_select_db($link, "usr_web26762838_1");
 				
 				
 				if(count($barray) == 1 && $barray[0] == "" ){
@@ -34,9 +34,7 @@
 				}else{
 					for($i = 0; $i < count($barray); $i++){
 						$temp = explode("#", $barray[$i]);
-						
 						$entrylen = count($temp);		
-						
 						switch($entrylen){
 							
 							case 1:	$sql="INSERT INTO a_p_beziehung (produkt_fk, fahrzeugtyp, marke) 

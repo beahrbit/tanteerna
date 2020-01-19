@@ -34,6 +34,12 @@ td{
 	width: 160px;
 }
 
+.pic_config{
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
 .Anmeldebutton{
 	width: 120px;
 	height: 40px;

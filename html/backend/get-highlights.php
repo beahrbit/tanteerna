@@ -5,8 +5,8 @@
 	$NK = $_GET["sub"];
 	
 	//Datenbankverbindung herstellen:
-	$link = mysqli_connect("localhost","root","");
-	mysqli_select_db($link, "tuning_datenbankvol2");
+	$link = mysqli_connect("localhost","web26762838","mlVIPbDT");
+	mysqli_select_db($link, "usr_web26762838_1");
 	$sql = "SELECT * FROM highlights INNER JOIN kategorien ON highlights.h_id = kategorien.highlight_fk
 						WHERE hauptkategorie = '$HK' AND nebenkategorie = '$NK' ;";
 			
