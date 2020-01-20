@@ -34,28 +34,35 @@
 			if ($stage <= 0) {
 				$sql = "SELECT * FROM car_make";
 			} else {
-				$sql = "";
+				$where = "";
+				$select = "";
+				$from = "";
 				switch($stage) {
-					case 5: $sql = " AND trim.name = '" . $path[4] . "'" . $sql;
-					case 4: $sql = " AND serie.name = '" . $path[3] . "'" . $sql;
-					case 3: $sql = " AND generation.name = '" . $path[2] . "'" . $sql;
-					case 2: $sql = " AND model.name = '" . $path[1] . "'" . $sql;
-					case 1: $sql = " WHERE make.name = '" . $path[0] . "'" . $sql;
+					case 4: 
+						$select = ", trim.name AS trimname " . $select;
+						$from = " INNER JOIN car_trim trim ON serie.id_car_serie = trim.id_car_serie " . $from;
+						$where = " AND serie.name = '" . $path[3] . "' " . $where;
+					case 3:
+						$select = ", serie.name AS seriename " . $select;
+						$from = " INNER JOIN car_serie serie ON generation.id_car_generation = serie.id_car_generation " . $from;
+						$where = " AND generation.name = '" . $path[2] . "' " . $where;
+					case 2: 
+						$select = ", generation.name AS generationname, 
+							generation.year_begin AS begin,
+							generation.year_end AS end "
+							. $select;
+						$from = " INNER JOIN car_generation generation ON model.id_car_model = generation.id_car_model " . $from;
+						$where = " AND model.name = '" . $path[1] . "' " . $where;
+					case 1: 
+						$select = "SELECT make.name AS makename " 
+							. ", model.name AS modelname "
+							. $select;
+						$from = "FROM car_make make "
+							. "INNER JOIN car_model model ON make.id_car_make = model.id_car_make"
+							. $from;
+						$where = " WHERE make.name = '" . $path[0] . "' " . $where;
 				}
-				$sql = 
-					"SELECT 
-						make.name AS makename, 
-						model.name AS modelname, 
-						generation.name AS generationname, 
-						serie.name AS seriename, 
-						trim.name AS trimname
-					FROM car_make make 
-						INNER JOIN car_model model ON make.id_car_make = model.id_car_make
-						INNER JOIN car_generation generation ON model.id_car_model = generation.id_car_model
-						INNER JOIN car_serie serie ON generation.id_car_generation = serie.id_car_generation
-						INNER JOIN car_trim trim ON serie.id_car_serie = trim.id_car_serie"
-					. $sql
-					. "GROUP BY " . $db[$stage];
+				$sql = $select . $from . $where . "GROUP BY " . $db[$stage];
 			}
 			
 			$res = mysqli_query($link, $sql);
