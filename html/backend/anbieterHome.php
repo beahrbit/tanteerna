@@ -1,5 +1,7 @@
 <?php
 	session_start();
+?><?php
+	session_start();
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +27,7 @@
 	
 		//Datenbankverbindung herstellen:
 		$link = mysqli_connect("localhost","web26762838","mlVIPbDT");
-		mysqli_select_db($link, "usr_web26762838_1");
+					mysqli_select_db($link, "usr_web26762838_1");
 		$sql = "Select * FROM anbieter Where username = '$user' AND password = '$pwd' ;";
 			
 		$res=mysqli_query($link, $sql);
@@ -56,7 +58,7 @@
 			mysqli_select_db($link, "usr_web26762838_1");
 			*/
 			$link = mysqli_connect("localhost","web26762838","mlVIPbDT");
-			mysqli_select_db($link, "usr_web26762838_1");
+					mysqli_select_db($link, "usr_web26762838_1");
 			
 			$Anbietername = $_SESSION['backmind'];
 			
@@ -94,7 +96,7 @@
 									
 									//Datenbankverbindung herstellen:
 									$link = mysqli_connect("localhost","web26762838","mlVIPbDT");
-									mysqli_select_db($link, "usr_web26762838_1");
+					mysqli_select_db($link, "usr_web26762838_1");
 									$sql = "SELECT * FROM highlights INNER JOIN kategorien ON highlights.h_id = kategorien.highlight_fk
 														WHERE hauptkategorie = '$HK' AND nebenkategorie = '$NK' ;";
 											
@@ -105,19 +107,55 @@
 								?>
 								<table>
 									<tr>
-										<?php if(utf8_encode($row["Heins"]) != "Null"){?>
-											<td><lu><li class='highlight'><?php echo  utf8_encode($rowhigh["Heins"]).utf8_encode($row["Heins"]); ?></li></lu></td>
+										<?php if(utf8_encode($row["Heins"]) != "Null"){
+												
+												if(strtoupper(utf8_encode($row["Heins"]))=="JA"){
+													$name="<img src='../../media/images/misc/haken.png' alt='Error404' height='20px' width='20px' class='imgtop'>";
+												}elseif (strtoupper(utf8_encode($row["Heins"]))=="NEIN"){
+													$name="<img src='../../media/images/misc/cross.png' alt='Error404' height='20px' width='20px' class='imgtop'>";
+												}else{
+													$name = utf8_encode($row["Heins"]);
+												}
+										?>
+											<td><lu><li class='highlight'><?php echo  utf8_encode($rowhigh["Heins"]). $name; ?></li></lu></td>
 										<?php } ?>
-										<?php if(utf8_encode($row["Hzwei"]) != "Null"){?>
-											<td><lu><li class='highlight'><?php echo  utf8_encode($rowhigh["Hzwei"]).utf8_encode($row["Hzwei"]); ?></li></lu></td>
+										<?php if(utf8_encode($row["Hzwei"]) != "Null"){
+												
+												if(strtoupper(utf8_encode($row["Hzwei"]))=="JA"){
+													$name="<img src='../../media/images/misc/haken.png' alt='Error404' height='20px' width='20px' class='imgtop'>";
+												}elseif (strtoupper(utf8_encode($row["Hzwei"]))=="NEIN"){
+													$name="<img src='../../media/images/misc/cross.png' alt='Error404' height='20px' width='20px' class='imgtop'>";
+												}else{
+													$name = utf8_encode($row["Hzwei"]);
+												}
+										?>
+											<td><lu><li class='highlight'><?php echo  utf8_encode($rowhigh["Hzwei"]). $name; ?></li></lu></td>
 										<?php } ?>
 									</tr>
 									<tr>
-										<?php if(utf8_encode($row["Hdrei"]) != "Null"){?>
-											<td><lu><li class='highlight'><?php echo  utf8_encode($rowhigh["Hdrei"]).utf8_encode($row["Hdrei"]); ?></li></lu></td>
+										<?php if(utf8_encode($row["Hdrei"]) != "Null"){
+											
+												if(strtoupper(utf8_encode($row["Hdrei"]))=="JA"){
+													$name="<img src='../../media/images/misc/haken.png' alt='Error404' height='20px' width='20px' class='imgtop'>";
+												}elseif (strtoupper(utf8_encode($row["Hdrei"]))=="NEIN"){
+													$name="<img src='../../media/images/misc/cross.png' alt='Error404' height='20px' width='20px'class='imgtop'>";
+												}else{
+													$name = utf8_encode($row["Hdrei"]);
+												}
+										?>
+											<td><lu><li class='highlight'><?php echo  utf8_encode($rowhigh["Hdrei"]). $name; ?></li></lu></td>
 										<?php } ?>
-										<?php if(utf8_encode($row["Hvier"]) != "Null"){?>
-											<td><lu><li class='highlight'><?php echo  utf8_encode($rowhigh["Hvier"]).utf8_encode($row["Hvier"]); ?></li></lu></td>
+										<?php if(utf8_encode($row["Hvier"]) != "Null"){
+												
+												if(strtoupper(utf8_encode($row["Hvier"]))=="JA"){
+													$name="<img src='../../media/images/misc/haken.png' alt='Error404' height='20px' width='20px' class='imgtop'>";
+												}elseif (strtoupper(utf8_encode($row["Hvier"]))=="NEIN"){
+													$name="<img src='../../media/images/misc/cross.png' alt='Error404' height='20px' width='20px' class='imgtop'>";
+												}else{
+													$name = utf8_encode($row["Hvier"]);
+												}
+										?>
+											<td><lu><li class='highlight'><?php echo  utf8_encode($rowhigh["Hvier"]). $name; ?></li></lu></td>
 										<?php } ?>
 									</tr>
 								</table>
@@ -129,7 +167,7 @@
 				<div class="Buttonbox">
 					<form action="afterconfig.php" method="Post">
 						<input type="hidden" name="id" value="<?php echo $row["ID"]; ?>">
-						<button type="submit" name="info" value="delete" class="config_button">
+						<button type="submit" name="info" value="delete" class="config_button" onclick="return confirm('Wollen Sie dieses Produkt wirklich löschen?')">
 							<img src="../../media/images/misc/delete.png" alt='Error404' width="35px" height="35px" class="Katimg">
 						</button>
 					</form>
@@ -149,3 +187,4 @@
 		<?php include('footer.php'); ?>
     </body>
 </html>
+
