@@ -23,7 +23,10 @@
 			}else{
 				$id = $_POST['id'];
 				$info = $_POST['info'];
-				
+				?>
+				<div class="MiddleIT">
+				<p><img src="../../media/images/misc/haken.png" alt="Error404" height="300px" width="300px" ></p>
+				<?php
 				if($info == "delete")
 				{
 					/*
@@ -165,7 +168,7 @@
 							<a href='anbieterHome.php' class='linkblau'>  zurück zur Übersicht. </a>";
 			?>
 			
-			
+			</div>
 			<?php
 			}}
 			?>
