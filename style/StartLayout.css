@@ -2,7 +2,7 @@
 	font-family: 'Barlow', sans-serif;
 }
 
-/* Allgemeiner Hintergrund für alle Seiten
+/* Allgemeiner Hintergrund fÃ¼r alle Seiten
 */
 body {
 	background-image: url("../media/images/pictures/Hintergrund.png");
@@ -13,7 +13,7 @@ body {
 	margin: 0;
 }
 
-/*Beginn Boxen Menübox*/
+/*Beginn Boxen MenÃ¼box*/
 
 .menuebox{
 	height: 75px;
@@ -78,7 +78,7 @@ body {
 	margin-top: -10px;
 }
 
-/*Allgemeine CSS für Feldgruppen*/
+/*Allgemeine CSS fÃ¼r Feldgruppen*/
 h1{
 	color: #fff;
 }
@@ -96,4 +96,5 @@ a{
 .hauptinfo{
 	margin-left: 4%;
 	margin-right:4%;
+	padding-bottom: 85px;
 }
