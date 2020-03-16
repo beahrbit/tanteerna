@@ -65,7 +65,8 @@
 				$sql = $select . $from . $where . "GROUP BY " . $db[$stage];
 			}
 			
-			$res = mysqli_query($link, $sql);
+			$res = mysqli_query($link, utf8_decode($sql));
+			echo $sql;
 			while ($row = mysqli_fetch_array($res)) {  
 				$value = $row[$db[$stage]];
 				$utf_value = utf8_encode($value);
