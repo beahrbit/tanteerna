@@ -1,0 +1,17 @@
+.headerboxlinks {
+    height: 150px;
+    float: left;
+}
+
+.headerboxrechts {
+    height: 150px;
+    float: right;
+	margin-right: 3%;
+	margin-top: 2.3%;
+	vertical-align: middle;
+}
+
+.headercontainer {
+    background-color: #404040;
+    height: 150px;
+}

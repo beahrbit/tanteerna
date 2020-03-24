@@ -1,0 +1,32 @@
+#dropdowns {
+    color: #00B0F5;
+    text-align: center;
+}
+
+.rundeEcke {
+ border-radius: 20px;   
+ width:200px;
+ height:35px;
+ text-indent: 5px; 
+}
+
+.Buttonstyle{
+	border-radius: 20px;  
+	background-color: #00B0F5;
+	width:200px;
+	height:35px;
+	font-weight: bold;
+	
+}
+
+.ResetButton{
+	border-radius: 20px;  
+	background-color: #404040;
+	width:200px;
+	height:35px;
+}
+
+h2{
+	color: #404040;
+	text-align: center;
+}

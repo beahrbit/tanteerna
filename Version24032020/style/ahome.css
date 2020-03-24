@@ -1,0 +1,148 @@
+.PlusButton{
+	height: 70px;
+	width: 100px;
+	font-size: 60px;
+	font-weight: bold;
+	background-color: #B1B1B1;
+	border-radius: 20px;
+	border-style: none;
+}
+
+.MiddleIT{
+	text-align: center;
+}
+
+.mittelbox{
+	width: 960px;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.highlight{
+	font-size:16px;
+}
+
+.Linkhover{
+	color: blue;
+}
+
+.gesamtbox{
+	height: 215px;
+	width: 980px;
+	margin-bottom:20px;
+}
+
+.produktbox{
+	height: 175px;
+	width: 860px;
+	border: 2px;	
+       margin-left:20px;
+	padding-top: 20px;
+     
+	margin-bottom: 20px;
+	
+}
+
+.grauerRand{
+	background-color: #f2f2f2;
+	border-radius: 20px;
+	height: 215px;
+	width: 900px;
+	margin-left: -10px;
+	margin-bottom: 20px;
+}
+
+.buttonstyle{
+	border-style: hidden;
+	height: 175px;
+	width: 800px;
+	cursor: pointer;
+	padding:0px;
+	background-color:transparent;
+	
+	
+}
+
+
+.produktbild{
+	height: 175px;
+	width: 240px;
+	vertical-align: center;
+	float: left;
+	
+	}
+
+.produktbeschreibung{
+	text-align: left;
+	height: 150px;
+	width: 500px;
+	margin-left: 10px;
+	float: left;
+	margin-top: 12.5px;
+
+}
+
+.preisbox{
+	height:auto;
+	width: 110px;
+	text-align:center;
+	vertical-align: middle;
+	font-weight: bold;
+	font-size: 20px;
+	float: right;
+	right: 0;
+	top: 0;
+	
+}
+
+.config_button{
+	height:65px;
+	width:65px;
+	border-style: none;
+	border-radius: 10px;
+	background-color: #B1B1B1;
+	float: right;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.Buttonbox{
+	height: 175px;
+	width: 100px;
+	float: right;
+	margin-top: -210px;
+}
+/*Sprachliches*/
+
+h3,h4{
+	line-height: 2px;
+	text-indent: 20px;
+}
+
+h3{
+	font-size:18px;
+}
+h4{
+	font-size:17px;
+}
+
+table{
+	border-spacing: 25px 8px;
+	margin-left: 10px;
+	margin-top: -14px;
+}
+
+p{
+	
+}
+
+
+
+.pfuerVerlauf{
+	line-height: 2px;
+}
+
+.imgtop{
+	margin-bottom: -4px;
+}
